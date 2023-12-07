@@ -24,6 +24,18 @@ canvas2.create_text(225,30,fill="darkblue",font="Times 15 italic bold",
                    text="숫자 게임에 오신 것을 환영합니다.") 
 canvas2.place(x=75,y=200)
 
+def update_ranking():
+    tree.delete(*tree.get_children())  # 기존 트리뷰의 아이템 삭제
+
+    # 데이터 정렬
+    sorted_data = sorted(player_data, key=lambda x: x[1])
+
+    # 데이터 추가
+    for idx, (name, tries) in enumerate(sorted_data, start=1):
+        rank_format = f"{idx}위" if idx >= 10 else f"{idx}위 "
+        tree.insert("", "end", values=(rank_format, name, tries))  
+
+
 def guessing():
     try:
         guess = int(guessField.get())
