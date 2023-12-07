@@ -25,6 +25,8 @@ resultLabel1.place(x=260,y=270)
 resultLabel2 = Label(f1,text="      ",bg="#E0E0E0")
 resultLabel2.place(x=290,y=270)
 
-
+guessField = Entry(f1,width=38)
+guessField.place(x=102,y=303)
+guessField.insert(0, "1에서 100까지의 숫자중 하나를 입력하세요")
 
 window.mainloop()
