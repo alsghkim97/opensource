@@ -1,5 +1,6 @@
 from tkinter import*
 import tkinter as tk
+from tkinter import ttk
 import random
 
 answer=random.randint(1,100)
@@ -106,5 +107,19 @@ canvas3.create_text(225,30,fill="darkblue",font="Times 15 italic bold",
                    text="순위표") 
 canvas3.place(x=75,y=365)
 
+tree = ttk.Treeview(window, columns=("Rank", "Name", "Tries"), show="headings")
+
+# 각 열의 제목 지정
+tree.heading("Rank", text="순위")
+tree.heading("Name", text="이름")
+tree.heading("Tries", text="시도횟수")
+
+# 각 열의 너비 지정
+tree.column("Rank", width=116,anchor=tk.CENTER) #anchor=tk.CENTER 가운데정렬
+tree.column("Name", width=216,anchor=tk.CENTER)
+tree.column("Tries", width=116,anchor=tk.CENTER)
+
+# Treeview 배치
+tree.place(x=77,y=420)
 
 window.mainloop()
