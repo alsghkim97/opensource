@@ -50,6 +50,19 @@ def guessing():
     resultLabel2["text"]=msg
     guessField.delete(0,5)
     
+def hint():
+    
+    hint1=answer-10
+    if(hint1<0):
+        hint1=0
+     
+    hint2=answer+10
+    if(hint2>100):
+        hint2=100
+        
+    messagebox.showinfo("힌트",f"{hint1} ~ {hint2} 사이의 숫자")
+    
+    
 def on_entry_click(event):
     if guessField.get() == "1에서 100까지의 숫자중 하나를 입력하세요":
         guessField.delete(0, END)
@@ -72,7 +85,7 @@ tryButton.place(x=377,y=300)
 resetButton = Button(f1,text="초기화",fg="red",bg="white")
 resetButton.place(x=413,y=300)
 
-hintButton = Button(f1,text="힌트",fg="blue",bg="white")
+hintButton = Button(f1,text="힌트",fg="blue",bg="white",command=hint)
 hintButton.place(x=461,y=300)
 
 histogram_button = tk.Button(window, text="통계",fg="orange",bg="white")
