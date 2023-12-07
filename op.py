@@ -49,6 +49,14 @@ def guessing():
 
     resultLabel2["text"]=msg
     guessField.delete(0,5)
+
+def reset():
+    global answer
+    global count
+    answer=random.randint(1,100)
+    count=0
+    resultLabel2["text"]="다시한번하세요!"
+#초기화 함수
     
 def hint():
     
@@ -82,7 +90,7 @@ guessField.bind("<FocusIn>", on_entry_click)
 tryButton = Button(f1,text="시도",fg="green",bg="white",command=guessing)
 tryButton.place(x=377,y=300)
 
-resetButton = Button(f1,text="초기화",fg="red",bg="white")
+resetButton = Button(f1,text="초기화",fg="red",bg="white",command=reset)
 resetButton.place(x=413,y=300)
 
 hintButton = Button(f1,text="힌트",fg="blue",bg="white",command=hint)
