@@ -50,6 +50,11 @@ def guessing():
     resultLabel2["text"]=msg
     guessField.delete(0,5)
     
+def on_entry_click(event):
+    if guessField.get() == "1에서 100까지의 숫자중 하나를 입력하세요":
+        guessField.delete(0, END)
+        guessField.config(fg="black")  
+# 클릭하면 엔트리 텍스트 사라지게 하는 함수 정의
 
 resultLabel1 = Label(f1,text="결과:",bg="#E0E0E0")
 resultLabel1.place(x=260,y=270)
@@ -59,7 +64,7 @@ resultLabel2.place(x=290,y=270)
 guessField = Entry(f1,width=38)
 guessField.place(x=102,y=303)
 guessField.insert(0, "1에서 100까지의 숫자중 하나를 입력하세요")
-
+guessField.bind("<FocusIn>", on_entry_click)
 
 tryButton = Button(f1,text="시도",fg="green",bg="white",command=guessing)
 tryButton.place(x=377,y=300)
