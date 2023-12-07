@@ -18,7 +18,6 @@ canvas2.create_text(225,30,fill="darkblue",font="Times 15 italic bold",
                    text="숫자 게임에 오신 것을 환영합니다.") 
 canvas2.place(x=75,y=200)
 
-f1.pack(fill="both",expand=True)
 
 resultLabel1 = Label(f1,text="결과:",bg="#E0E0E0")
 resultLabel1.place(x=260,y=270)
@@ -39,5 +38,9 @@ resetButton.place(x=413,y=300)
 hintButton = Button(f1,text="힌트",fg="blue",bg="white")
 hintButton.place(x=461,y=300)
 
+histogram_button = tk.Button(window, text="통계",fg="orange",bg="white")
+histogram_button.place(x=497, y=300)
+
+f1.pack(fill="both",expand=True)
 
 window.mainloop()
