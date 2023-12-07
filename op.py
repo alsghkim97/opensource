@@ -1,8 +1,11 @@
 from tkinter import*
 import tkinter as tk
 from tkinter import ttk
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import random
 
+plt.rcParams['font.family'] = 'Malgun Gothic'
 answer=random.randint(1,100)
 #answer=random.randint(1,100)
 count=0 #시도횟수
