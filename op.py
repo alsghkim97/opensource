@@ -6,6 +6,8 @@ import random
 answer=random.randint(1,100)
 #answer=random.randint(1,100)
 count=0 #시도횟수
+name_window = None
+player_data = []
 
 window = Tk()
 window.geometry('600x700')
@@ -24,6 +26,33 @@ canvas2.create_text(225,30,fill="darkblue",font="Times 15 italic bold",
                    text="숫자 게임에 오신 것을 환영합니다.") 
 canvas2.place(x=75,y=200)
 
+def get_user_input():
+    global name_window 
+      #위에 none으로 초기화하였음
+      
+    if name_window is None: 
+        user_input = simpledialog.askstring("입력", "값을 입력하세요:")
+        #simpledialog.askstring 메서드: 
+         #사용자가 입력을 완료=> 입력값을 반환하고, 
+         #사용자가 "취소" 버튼을 => None을 반환
+        if user_input is not None:  #즉 취소없이 입력값 제공한 경우
+           
+            
+            existing_names = [str(tree.item(item)["values"][1]) for item in tree.get_children()]
+            # 사용자 이름이 이미 트리뷰에 있는지 확인
+            #tree.item(item)["values"][1]를 사용하면 해당 행의 열(NAME) 데이터에 접근
+            #이제 모든 자식 항목에 대해 위의 과정을 반복하고, 그 결과를 리스트로 만듬
+            
+            if str(user_input) in existing_names: #사용자 이름이 이미 존재한다면
+                messagebox.showinfo("경고", "이미 존재하는 사용자 이름입니다. 다른 이름을 입력하세요.")
+                get_user_input()  # 경고후 다시 입력 받도록함
+            else:#만약 이름이 고유한 경우
+                print("사용자 입력:", user_input) 
+                player_data.append((user_input, count)) #시도횟수와 사용자이름을 배열에 담음
+                update_ranking() #update_ranking함수 호출
+                
+        name_window = None #입력창 닫음
+        
 def update_ranking():
     tree.delete(*tree.get_children())  # 기존 트리뷰의 아이템 삭제
 
