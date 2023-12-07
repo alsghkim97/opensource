@@ -33,4 +33,7 @@ guessField.insert(0, "1에서 100까지의 숫자중 하나를 입력하세요")
 tryButton = Button(f1,text="시도",fg="green",bg="white")
 tryButton.place(x=377,y=300)
 
+resetButton = Button(f1,text="초기화",fg="red",bg="white")
+resetButton.place(x=413,y=300)
+
 window.mainloop()
