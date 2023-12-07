@@ -20,6 +20,8 @@ canvas2.place(x=75,y=200)
 
 f1.pack(fill="both",expand=True)
 
+resultLabel1 = Label(f1,text="결과:",bg="#E0E0E0")
+resultLabel1.place(x=260,y=270)
 
 
 window.mainloop()
